@@ -73,46 +73,7 @@ The dashboard supports:
 - Axios
 - DummyJSON API
 
-## Project Structure
 
-src/
-├── app/
-│   ├── login/
-│   │   └── page.js
-│   │
-│   ├── products/
-│   │   ├── layout.js
-│   │   ├── page.js
-│   │   ├── add/
-│   │   │   └── page.js
-│   │   └── [id]/
-│   │       ├── page.js
-│   │       └── edit/
-│   │           └── page.js
-│   │
-│   ├── layout.js
-│   ├── page.js
-│   └── globals.css
-│
-├── components/
-│   ├── ConfirmModal.jsx
-│   └── ProtectedRoute.jsx
-│
-├── context/
-│   └── ProductContext.jsx
-│
-├── hooks/
-│   └── useDebounce.js
-│
-├── lib/
-│   └── axios.js
-│
-├── services/
-│   ├── authApi.js
-│   └── productApi.js
-│
-└── utils/
-    └── auth.js
 
 Setup & Installation
 
