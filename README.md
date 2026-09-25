@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Product Admin Dashboard
 
-## Getting Started
+A responsive Product Admin Dashboard built with Next.js, React, JavaScript, Tailwind CSS, Axios, and the DummyJSON API.
 
-First, run the development server:
+The application allows authenticated users to view, search, filter, sort, add, edit, view, and delete products through a simple admin interface.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Authentication
+- Login using DummyJSON authentication
+- Demo credentials
+- Protected product routes
+- Logout functionality
+- Axios-based authorization handling
+- Duplicate login request prevention
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Product Management
+- Product listing
+- Product details
+- Add product
+- Edit product
+- Delete product
+- Delete confirmation modal
+- Product image gallery
+- Product reviews
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Search and Filtering
+- Debounced product search
+- Category filtering
+- Price sorting
+- Rating sorting
+- Title sorting
+- Search/category mutual exclusivity based on DummyJSON API limitations
 
-## Learn More
+### Pagination
+- Previous / Next navigation
+- Page numbers
+- Page size selection
+- 10 / 20 / 50 products per page
+- Showing current result range
 
-To learn more about Next.js, take a look at the following resources:
+### URL State
+Search, category, sorting, page, and page size are reflected in the URL.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Example:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`/products?page=2&pageSize=20&search=phone`
 
-## Deploy on Vercel
+### Error Handling
+- Loading states
+- Empty states
+- API error states
+- Retry functionality
+- Invalid product handling
+- Invalid URL parameter handling
+- Duplicate request prevention
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Responsive Design
+The dashboard supports:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Desktop table layout
+- Mobile card layout
+- Responsive forms
+- Responsive product details
+- Responsive confirmation modal
+
+## Tech Stack
+
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- Axios
+- DummyJSON API
+
+## Project Structure
+
+src/
+├── app/
+│   ├── login/
+│   │   └── page.js
+│   │
+│   ├── products/
+│   │   ├── layout.js
+│   │   ├── page.js
+│   │   ├── add/
+│   │   │   └── page.js
+│   │   └── [id]/
+│   │       ├── page.js
+│   │       └── edit/
+│   │           └── page.js
+│   │
+│   ├── layout.js
+│   ├── page.js
+│   └── globals.css
+│
+├── components/
+│   ├── ConfirmModal.jsx
+│   └── ProtectedRoute.jsx
+│
+├── context/
+│   └── ProductContext.jsx
+│
+├── hooks/
+│   └── useDebounce.js
+│
+├── lib/
+│   └── axios.js
+│
+├── services/
+│   ├── authApi.js
+│   └── productApi.js
+│
+└── utils/
+    └── auth.js
+
+Setup & Installation
+
+Clone the GitHub repository by running the command git clone 
+https://github.com/HSBADGUJAR/product-admin-dashboard.git
+
+Open the Project Directory by moving into the project folder with cd product-admin-dashboard. 
+
+Install Dependencies by running npm install. This will install the packages listed in package.json.
+
+Environment Variables — The current version of this project does not require any environment variables. The application uses the public DummyJSON API at https://dummyjson.com. Therefore, you do not need to create a .env.local file for the current version. 
+
+Start the Development Server by running npm run dev. After the server starts, open http://localhost:3000.
+
+Login — Use the following DummyJSON demo credentials. Username: emilys. Password: emilyspass. After successful login, the application redirects to /products.
+
+Test the Application — Once logged in, explore the product page, verify the authentication flow.
